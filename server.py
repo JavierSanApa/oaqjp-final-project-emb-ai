@@ -16,6 +16,9 @@ def emotion_detector_route():
 
     response = emotion_detector(text_to_analyze)
 
+    if response["dominant_emotion"] is None:
+        return "¡Texto inválido! ¡Por favor, intenta de nuevo!"
+
     return (
         "Para la declaración dada, la respuesta del sistema es "
         f"'anger': {response['anger']}, "
